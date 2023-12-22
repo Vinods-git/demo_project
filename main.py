@@ -1,10 +1,13 @@
 
 from iqoptionapi.stable_api import IQ_Option
 import time
+from time import strftime, localtime
+from dotenv import load_dotenv
+load_dotenv()
 error_password="""{"code":"invalid_credentials","message":"You entered the wrong credentials. Please check that the login/password is correct."}"""
 iqoption = IQ_Option(USERNAME,PASS)
 check,reason=iqoption.connect()
-from time import strftime, localtime
+
 
 
 def take_trade(currency,Money,expiry_time,expirations_mode):
