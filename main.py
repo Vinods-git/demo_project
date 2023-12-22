@@ -40,7 +40,6 @@ def take_trade(currency,Money,expiry_time,expirations_mode):
       ACTION = 'put'
     elif prev_candles[-2]['open']<prev_candles[-2]['close']:
       ACTION = 'call'
-    else : ACTION = 'put'
   
   check,id=iqoption.buy(Money,ACTIVES,ACTION,expirations_mode)
   return id
