@@ -61,7 +61,7 @@ while True:
     else: Money,profit=3,0
     minute = strftime('%M', localtime(time.time()))
 #   if int(minute)%5==0 and not taken:
-    if not taken:
+    if int(minute)%expirations_mode==0 and not taken:
         id = take_trade("EURJPY",Money,expiry_time,expirations_mode) 
         last_result = iqoption.check_win_v3(id)
         profit += last_result
