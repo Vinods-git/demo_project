@@ -51,7 +51,7 @@ def take_trade(currency,Money,expiry_time,expirations_mode):
 initial_money = 3
 Money = 0
 cur = "EURJPY"
-expirations_mode = 5
+expirations_mode = 1 #5
 expiry_time = 60*expirations_mode
 profit = 0
 last_result = 0
