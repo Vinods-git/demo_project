@@ -48,21 +48,33 @@ def take_trade(currency,Money,expiry_time,expirations_mode):
   check,id=iqoption.buy(Money,ACTIVES,ACTION,expirations_mode)
   return id
     
+initial_money = 3
 Money = 0
-profit = 0
-last_result = 0
+cur = "EURJPY"
 expirations_mode = 5
 expiry_time = 60*expirations_mode
+profit = 0
+last_result = 0
 while True:
     id = 0
     taken = 0
-    if last_result>0 and last_result<Money:
+    if last_result>0 and last_result<initial_money:
         Money+=last_result
-    else: Money,profit=3,0
+    else: Money,profit=initial_money,0
     minute = strftime('%M', localtime(time.time()))
 #   if int(minute)%5==0 and not taken:
     if int(minute)%expirations_mode==0 and not taken:
-        id = take_trade("EURJPY",Money,expiry_time,expirations_mode) 
+        id = take_trade(cur,Money,expiry_time,expirations_mode) 
         last_result = iqoption.check_win_v3(id)
         profit += last_result
         print(profit,iqoption.get_balance())
+
+# from iqoptionapi.stable_api import IQ_Option
+ 
+# I_want_money=IQ_Option("vinodkarmenghe@gmail.com","Vinodk123")
+# I_want_money.connect()#connect to iqoption
+# ACTIVES="EURUSD"
+# duration=1#minute 1 or 5
+# amount=1
+# action="call"#put
+# print(I_want_money.buy_digital_spot(ACTIVES,amount,action,duration))
