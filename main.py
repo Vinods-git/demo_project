@@ -3,9 +3,11 @@ from iqoptionapi.stable_api import IQ_Option
 import time
 from time import strftime, localtime
 from dotenv import load_dotenv
-load_dotenv()
+import os
+load_dotenv()  # This line brings all environment variables from .env into os.environ
+print(os.environ['VONAGE_API'])
 error_password="""{"code":"invalid_credentials","message":"You entered the wrong credentials. Please check that the login/password is correct."}"""
-iqoption = IQ_Option(USERNAME,PASS)
+iqoption = IQ_Option(os.environ['USERNAME'],os.environ['PASS'])
 check,reason=iqoption.connect()
 
 
