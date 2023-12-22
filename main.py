@@ -2,7 +2,7 @@
 from iqoptionapi.stable_api import IQ_Option
 import time
 error_password="""{"code":"invalid_credentials","message":"You entered the wrong credentials. Please check that the login/password is correct."}"""
-iqoption = IQ_Option("vinodkarmenghe@gmail.com","Vinodk123")
+iqoption = IQ_Option(USERNAME,PASS)
 check,reason=iqoption.connect()
 from time import strftime, localtime
 
